@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>时钟——时间轴</title>
+		<link rel='stylesheet' href='./css/history.css' type='text/css' media='all' />
+		<script type="text/javascript" src="./js/jquery_1.11.3.min.js"></script>
+		<script type='text/javascript' src='./js/lodash.js'></script>
+		<script type='text/javascript' src='./js/TweenMax.min.js'></script>
+		<script type='text/javascript' src='./js/DrawSVGPlugin.js'></script>
+		<script type='text/javascript' src='./js/namespaces.js'></script>
+		<script type="text/javascript">
+			function preload_images(images, functions) {
+				if (typeof functions === 'undefined') functions = {};
+				var loaded = 0;
+				for (var i = 0; i < images.length; i++) {
+					////console.log('preload '+images[i]);
+					var img = new Image();
+					img.onload = img.onerror = function() {
+						////console.log(img.src + ' loaded');
+						var onImgParams = {
+							//img : img,
+							//index : i,
+							loadedPct: (loaded / images.length)
+						};
+						if (_.isFunction(functions.onImgLoad)) functions.onImgLoad(onImgParams);
+
+						loaded++;
+						if (loaded >= images.length && _.isFunction(functions.onAllImgsLoaded)) {
+							////console.log('all imgs loaded');
+							functions.onAllImgsLoaded()
+						}
+					};
+					img.src = images[i];
+				} // endfor
+			} // preload_images()
+		</script>
+	</head>
+	<body>
+		<div id="page" class="site">
+			<div id="content" class="site-content">
+				<div class="content-block history">
+					<div class="content-wrap small-wrap vert-spaced lined">
+						<div class="columns">
+							<div class="col third middled copy-col onScrollEnter">
+								<h3 class="chapter-headline">1978</h3>
+								<p class="chapter-copy s-text top-spaced">开端：1978年，中国开始实行“三北工程”，其将治理黄土高原水土流失作为一项主要任务。 </p>
+							</div>
+							<!-- .col -->
+							<div class="col two-thirds middled ui-col rel onScrollEnter">
+								<div class="chapter-image img imgfill"
+									style="background-image:url('images/0.png');"></div>
+								<div class="timeline-container circle-timelines">
+									<div class="fill-parent ui-timelines">
+										<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 600 600"
+											style="enable-background:new 0 0 600 600;" xml:space="preserve">
+											<circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300"
+												cy="300" r="300" />
+										</svg>
+										<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 600 600"
+											style="enable-background:new 0 0 600 600;" xml:space="preserve">
+											<circle fill="none" stroke="#000000" stroke-miterlimit="10" cx="300"
+												cy="300" r="300" />
+										</svg>
+									</div>
+									<!-- .ui-timelines -->
+									<div class="ui-chapters fill-parent">
+										<div class="ui-chapter current-chapter"> <span class="chapter-point"></span>
+											<span class="chapter-label">1978</span> </div>
+										<div class="ui-chapter"> <span class="chapter-point"></span>
+											<span class="chapter-label">1978</span> </div>
+										<div class="ui-chapter"> <span class="chapter-point"></span> <span
+												class="chapter-label">1989</span> </div>
+										<div class="ui-chapter"> <span class="chapter-point"></span> <span
+												class="chapter-label">2001</span> </div>
+										<div class="ui-chapter"> <span class="chapter-point"></span> <span
+												class="chapter-label">1945</span> </div>
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1962</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1963</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1965</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1977</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1992</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">1997</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2002</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2006</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2007</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2009</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2012</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2013</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2014</span> </div>-->
+										<!--                <div class="ui-chapter"> <span class="chapter-point"></span> <span class="chapter-label">2015</span> </div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script type='text/javascript' src='./js/history.js'></script>
+		<script type='text/javascript'>
+			/* <![CDATA[ */
+
+
+			var _history_data = [
+				{
+					"title": "1978",
+					"copy": "第一阶段从1978年到1988年，以单纯生态造林绿化为主，坚持按山系、分流域综合治理的原则，大力营造水土保持林和水源涵养林，一些重点治理区的生态面貌得到初步改善",
+					"img": {
+						"src": "./images\/1.jpg"
+					}
+				},
+				{
+					"title": "1989",
+					"copy": "第二阶段从1989年到2000年，大力建设生态经济型防护林体系，将生态建设和农村、农民的经济利益结合起来，水土流失治理速度加快、规模加大。",
+					"img": {
+						"src": "./images\/2.jpg"
+					}
+				},
+				{
+					"title": "2001",
+					"copy": "第三阶段从2001年到2008年，在大力发展生态经济型防护林体系的基础上，合理引水、充分保水、有效节水、高效用水，大力推广以抗旱造林为核心的径流林业技术，把土地利用结构调整与建立合理的产业结构、完善农民收入结构结合起来",
+					"img": {
+						"src": "./images\/3.jpg"
+					}
+				},
+				{
+					"title": "30",
+					"copy": "建设30年大大改善了黄土高原区的环境状况，共治理黄土高原水土流失面积3亿多亩，64黄土高原区的森林覆盖率由1977年的11%提高到2008年的19.55%。土壤侵蚀模数大幅度下降，年入黄泥沙由16亿吨减少到2008年的13亿吨，年均减少3亿多吨。",
+					"img": {
+						"src": "./images\/0.png"
+					}
+				}
+			]
+			// {"title":"1962","copy":"1962事件","img":{"src":"images\/FOTO2-1000x677.jpg"}},
+			// {"title":"1963","copy":"1963事件","img":{"src":"images\/1963.jpg"}},
+			// {"title":"1965","copy":"1965事件","img":{"src":"images\/Foto5-1000x608.jpg"}},
+			// {"title":"1977","copy":"1997事件","img":{"src":"images\/foto6-1000x625.jpg"}},
+			// {"title":"1992","copy":"1992事件","img":{"src":"images\/foto8-1000x682.jpg"}},
+			// {"title":"1997","copy":"1997事件","img":{"src":"images\/foto9-1000x533.jpg"}},
+			// {"title":"2002","copy":"2002事件","img":{"src":"images\/foto10-1000x563.jpg"}},
+			// {"title":"2006","copy":"2006事件","img":{"src":"images\/foto11-1000x667.jpg"}},
+			// {"title":"2007","copy":"2007事件","img":{"src":"images\/2007-1000x801.jpg"}},
+			// {"title":"2009","copy":"2009事件","img":{"src":"images\/foto13_alternativehs_2009-1000x584.jpg"}},
+			// {"title":"2012","copy":"2012事件","img":{"src":"images\/foto14_AlternativeHair2011_Bundy_Bundy_ABH_9185-1000x665.jpg"}},
+			// {"title":"2013","copy":"2013事件","img":{"src":"images\/foto15.jpg"}},
+			// {"title":"2014","copy":"2014事件","img":{"src":"images\/foto16-1000x602.jpg"}},
+			// {"title":"2015","copy":"2015事件","img":{"src":"images\/foto17jpg-1000x667.jpg"}}];
+			/* ]]> */
+		</script>
+		<script type='text/javascript' src='./js/page_about.js'></script>
+	</body>
+</html>
